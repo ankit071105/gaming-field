@@ -1,0 +1,197 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles for Rural STEM Quest */
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  /* Odia and Hindi language support */
+  .lang-odia {
+    font-family: 'Arial', sans-serif; /* Replace with actual Odia font */
+  }
+  
+  .lang-hindi {
+    font-family: 'Arial', sans-serif; /* Replace with actual Hindi font */
+  }
+}
+
+@layer components {
+  .gesture-camera {
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border: 3px solid #e5e7eb;
+    transition: all 0.3s ease;
+  }
+  
+  .gesture-camera:hover {
+    box-shadow: 0 25px 50px rgba(59, 130, 246, 0.15);
+    border-color: #3b82f6;
+  }
+  
+  .game-container {
+    perspective: 1000px;
+  }
+  
+  .game-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  }
+  
+  .game-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+  }
+  
+  .hand-landmark {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #3b82f6;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+    animation: pulse 2s infinite;
+  }
+  
+  .gesture-feedback {
+    animation: pulse 1.5s infinite;
+    background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .physics-object {
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+  }
+  
+  .chemistry-beaker {
+    background: linear-gradient(to bottom, transparent 30%, currentColor 30%);
+    clip-path: polygon(0% 0%, 100% 0%, 85% 100%, 15% 100%);
+  }
+  
+  .biology-organism {
+    filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.2));
+  }
+  
+  .coding-block {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-left: 4px solid #4f46e5;
+  }
+  
+  .math-shape {
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+  }
+  
+  /* Progress bars */
+  .progress-bar {
+    background: linear-gradient(90deg, #10b981, #34d399);
+    transition: width 0.5s ease-in-out;
+  }
+  
+  .progress-bar-physics { background: linear-gradient(90deg, #ef4444, #f87171); }
+  .progress-bar-math { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+  .progress-bar-chemistry { background: linear-gradient(90deg, #10b981, #34d399); }
+  .progress-bar-biology { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+  .progress-bar-coding { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  
+  /* Subject badges */
+  .badge-physics { @apply bg-red-100 text-red-800 border-red-200; }
+  .badge-math { @apply bg-blue-100 text-blue-800 border-blue-200; }
+  .badge-chemistry { @apply bg-green-100 text-green-800 border-green-200; }
+  .badge-biology { @apply bg-purple-100 text-purple-800 border-purple-200; }
+  .badge-coding { @apply bg-yellow-100 text-yellow-800 border-yellow-200; }
+  
+  /* Difficulty badges */
+  .badge-beginner { @apply bg-green-100 text-green-800; }
+  .badge-intermediate { @apply bg-yellow-100 text-yellow-800; }
+  .badge-advanced { @apply bg-red-100 text-red-800; }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .bg-gradient-science {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+  
+  .border-gradient {
+    border-image: linear-gradient(45deg, #3b82f6, #8b5cf6) 1;
+  }
+  
+  .shadow-glow {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+  
+  .animate-float-slow {
+    animation: float 8s ease-in-out infinite;
+  }
+}
+
+/* Custom animations */
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+@keyframes bounce-gentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes ripple {
+  0% { transform: scale(0); opacity: 1; }
+  100% { transform: scale(4); opacity: 0; }
+}
+
+/* Responsive design helpers */
+@media (max-width: 768px) {
+  .game-card {
+    transform: none !important;
+  }
+  
+  .gesture-camera {
+    border-radius: 12px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .game-container {
+    break-inside: avoid;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .game-card {
+    border: 2px solid #000;
+  }
+  
+  .hand-landmark {
+    background: #000;
+    border: 2px solid #fff;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
