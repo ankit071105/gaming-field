@@ -37,5 +37,5 @@ A gamified learning platform for rural education focusing on STEM subjects with 
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/your-username/rural-stem-quest.git
-cd rural-stem-quest
+git clone https://github.com/your-username/rural-stem-quest.git](https://github.com/ankit071105/gaming-field
+cd gaming-field
